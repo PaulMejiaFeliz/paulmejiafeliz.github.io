@@ -1,14 +1,25 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import App from './App.tsx';
+import {
+  createBrowserRouter,
+  RouteObject,
+  RouterProvider,
+} from 'react-router-dom';
+import App from './App';
+import { Profile } from './pages';
 
 import './index.scss';
 
-const routes = [
+const routes: RouteObject[] = [
   {
     path: '/*',
     element: <App />,
+    children: [
+      {
+        path: '*',
+        element: <Profile />,
+      },
+    ],
   },
 ];
 

@@ -5,7 +5,7 @@ import {
   SUPPORTED_APP_LOCALES,
 } from '../../utils/constants';
 
-import './header.scss';
+import './Header.scss';
 
 export const Header: FC = () => {
   const { i18n } = useTranslation();

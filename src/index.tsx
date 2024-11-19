@@ -6,6 +6,7 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import App from './App';
+import { UserProvider } from './contexts';
 import { Profile } from './pages';
 
 import './index.scss';
@@ -35,11 +36,13 @@ const router = createBrowserRouter(routes, {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider
-      router={router}
-      future={{
-        v7_startTransition: true,
-      }}
-    />
+    <UserProvider>
+      <RouterProvider
+        router={router}
+        future={{
+          v7_startTransition: true,
+        }}
+      />
+    </UserProvider>
   </StrictMode>
 );

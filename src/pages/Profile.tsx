@@ -1,9 +1,8 @@
+import Card from '@mui/material/Card';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Card, Tag } from '../components';
 import { useUserContext } from '../hooks';
-
-import './Profile.scss';
+import { Skills } from '../components';
 
 export const Profile: FC = () => {
   const { t } = useTranslation();
@@ -20,13 +19,7 @@ export const Profile: FC = () => {
       <Card>
         <p>{summary}</p>
 
-        <ul className="skills">
-          {skills.map((s) => (
-            <li key={s}>
-              <Tag text={s} />
-            </li>
-          ))}
-        </ul>
+        <Skills skills={skills} />
       </Card>
     </>
   );

@@ -5,15 +5,18 @@ import {
   MenuItem,
   Select,
   SelectChangeEvent,
-  useColorScheme,
 } from '@mui/material';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from '../utils/constants';
 
-export const Header: FC = () => {
+export type HeaderProps = {
+  mode: 'system' | 'light' | 'dark';
+  onModeChange: (mode: 'system' | 'light' | 'dark') => void;
+};
+
+export const Header: FC<HeaderProps> = ({ mode, onModeChange }) => {
   const { t, i18n } = useTranslation();
-  const { mode, setMode } = useColorScheme();
 
   const locales = SUPPORTED_APP_LOCALES.sort((a, b) =>
     a.name.localeCompare(b.name)
@@ -23,13 +26,9 @@ export const Header: FC = () => {
     i18n.changeLanguage(event.target.value);
   };
 
-  const handleColorSchemaChange = (event: SelectChangeEvent<string>) => {
-    setMode(event.target.value as 'system' | 'light' | 'dark');
+  const handleModeChange = (event: SelectChangeEvent<string>) => {
+    onModeChange(event.target.value as 'system' | 'light' | 'dark');
   };
-
-  // if (!mode) {
-  //   return null;
-  // }
 
   return (
     <header>
@@ -63,7 +62,7 @@ export const Header: FC = () => {
         </FormControl>
         <FormControl variant="filled">
           <InputLabel>{t('theme')}</InputLabel>
-          <Select value={mode} onChange={handleColorSchemaChange}>
+          <Select value={mode} onChange={handleModeChange}>
             <MenuItem value="system">System</MenuItem>
             <MenuItem value="light">Light</MenuItem>
             <MenuItem value="dark">Dark</MenuItem>

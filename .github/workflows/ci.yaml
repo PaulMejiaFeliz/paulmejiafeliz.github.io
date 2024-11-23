@@ -29,36 +29,5 @@ jobs:
       - name: Run linter
         run: npm run lint
 
-  lint:
-    name: Lint
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          cache: 'npm'
-
-      - name: Run linter
-        run: npm run lint
-
-  test:
-    name: Test
-    needs: [build, lint]
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          cache: 'npm'
-
       - name: Run tests
         run: npm test

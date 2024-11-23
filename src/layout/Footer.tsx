@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { Copyright } from '../components/Copyright';
+import { Copyright } from '../components';
 
 export const Footer: FC = () => {
   return (

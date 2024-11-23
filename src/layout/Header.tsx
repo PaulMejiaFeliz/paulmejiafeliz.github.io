@@ -22,11 +22,11 @@ export const Header: FC<HeaderProps> = ({ mode, onModeChange }) => {
     a.name.localeCompare(b.name)
   );
 
-  const handleLanguageChange = (event: SelectChangeEvent<string>) => {
-    i18n.changeLanguage(event.target.value);
+  const handleLanguageChange = (event: SelectChangeEvent) => {
+    void i18n.changeLanguage(event.target.value);
   };
 
-  const handleModeChange = (event: SelectChangeEvent<string>) => {
+  const handleModeChange = (event: SelectChangeEvent) => {
     onModeChange(event.target.value as 'system' | 'light' | 'dark');
   };
 

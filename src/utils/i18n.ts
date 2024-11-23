@@ -3,17 +3,16 @@ import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next';
 import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from './constants';
 
-function localResourcesToBackend() {
-  return resourcesToBackend(async (locale: string, _namespace: string) => {
-    return (await import(`../locales/${locale}.json`)).default;
-  });
-}
-
 const locales = SUPPORTED_APP_LOCALES.map((l) => l.code);
 
-i18n
+void i18n
   .use(initReactI18next) // passes i18n down to react-i18next
-  .use(localResourcesToBackend())
+  .use(
+    resourcesToBackend(
+      (locale: string, _namespace: string) =>
+        import(`../locales/${locale}.json`)
+    )
+  )
   .init({
     lng: DEFAULT_APP_LOCALE,
     fallbackLng: DEFAULT_APP_LOCALE,

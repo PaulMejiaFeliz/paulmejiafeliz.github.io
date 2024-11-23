@@ -80,7 +80,7 @@ jobs:
 
   deploy:
     name: Deploy
-    needs: build
+    needs: [build, lint, test]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

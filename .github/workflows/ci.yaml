@@ -26,6 +26,9 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Run linter
+        run: npm run lint
+
   lint:
     name: Lint
     needs: build

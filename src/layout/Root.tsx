@@ -1,10 +1,10 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { darkTheme, lightTheme, systemTheme } from '../utils';
 import { Footer } from './Footer';
 import { Header } from './Header';
 
-import { darkTheme, lightTheme, systemTheme } from '../utils';
 import './Root.scss';
 
 function Root() {

@@ -1,4 +1,5 @@
 {
-  "helloWorld": "Hola Mundo!",
-  "language": "Idioma"
+  "language": "Idioma",
+  "summary": "Resumen",
+  "skills": "Habilidades"
 }

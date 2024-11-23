@@ -7,5 +7,12 @@
     "src/locales"
   ],
   "i18n-ally.keystyle": "nested",
-  "cSpell.language": "en,es-ES"
+  "cSpell.language": "en,es-ES",
+  "stylelint.enable": true,
+  "css.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": [
+    "css",
+    "scss"
+  ]
 }

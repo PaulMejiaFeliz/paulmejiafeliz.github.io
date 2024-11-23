@@ -1,3 +1,5 @@
 {
-  "helloWorld": "Hello World!"
+  "language": "Language",
+  "summary": "Summary",
+  "skills": "Skills"
 }

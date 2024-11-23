@@ -9,11 +9,11 @@ export const Copyright = () => {
         color: 'text.secondary',
       }}
     >
-      {'Copyright © '}
+      <span>{'Copyright © '}</span>
       <Link color="inherit" href="https://paunmejiafeliz.me">
         paulmejiafeliz.me
       </Link>{' '}
-      {new Date().getFullYear()}.
+      <span>{new Date().getFullYear()}</span>.
     </Typography>
   );
 };

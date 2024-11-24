@@ -1,7 +1,8 @@
 {
   "cSpell.words": [
     "keystyle",
-    "Lngs"
+    "Lngs",
+    "persistor"
   ],
   "i18n-ally.localesPaths": [
     "src/locales"

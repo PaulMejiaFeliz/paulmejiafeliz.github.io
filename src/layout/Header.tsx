@@ -11,7 +11,7 @@ import { useTranslation } from 'react-i18next';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { languageChanged, selectUserPreferences, themeChanged } from '../store';
 import { SupportedAppLanguagesCodes, SupportedThemes } from '../types';
-import { SUPPORTED_APP_LOCALES } from '../utils';
+import { SUPPORTED_APP_LOCALES } from '../constants';
 
 export const Header: FC = () => {
   const { t } = useTranslation();

@@ -1,7 +1,4 @@
-import {
-  SupportedAppLanguagesCodes,
-  SupportedLanguages,
-} from '../types/userPreferences';
+import { SupportedAppLanguagesCodes, SupportedLanguages } from './types';
 
 /**
  * The default locale for the app.

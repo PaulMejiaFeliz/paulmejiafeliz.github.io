@@ -5,7 +5,7 @@ import {
   SupportedThemes,
   UserPreferences,
 } from '../types/userPreferences';
-import { DEFAULT_APP_LOCALE } from '../utils';
+import { DEFAULT_APP_LOCALE } from '../constants';
 
 const initialState: UserPreferences = {
   language: DEFAULT_APP_LOCALE,

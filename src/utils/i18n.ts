@@ -1,7 +1,7 @@
 import i18n from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next';
-import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from './constants';
+import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from '../constants';
 
 const locales = Object.keys(SUPPORTED_APP_LOCALES);
 

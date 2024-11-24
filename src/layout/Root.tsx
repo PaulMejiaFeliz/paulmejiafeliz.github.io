@@ -1,4 +1,6 @@
-import { CssBaseline, ThemeProvider } from '@mui/material';
+import { CssBaseline, Theme, ThemeProvider } from '@mui/material';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Outlet } from 'react-router-dom';
 import { useAppSelector } from '../hooks';
 import { selectUserPreferences } from '../store';
@@ -9,14 +11,27 @@ import { Header } from './Header';
 import './Root.scss';
 
 function Root() {
-  const { theme } = useAppSelector(selectUserPreferences);
+  const { i18n } = useTranslation();
+  const { theme, language } = useAppSelector(selectUserPreferences);
+  const [userTheme, setUserTheme] = useState<Theme>(systemTheme);
 
-  let userTheme = systemTheme;
-  if (theme === 'dark') {
-    userTheme = darkTheme;
-  } else if (theme === 'light') {
-    userTheme = lightTheme;
-  }
+  useEffect(() => {
+    void i18n.changeLanguage(language);
+  }, [i18n, language]);
+
+  useEffect(() => {
+    switch (theme) {
+      case 'dark':
+        setUserTheme(darkTheme);
+        break;
+      case 'light':
+        setUserTheme(lightTheme);
+        break;
+
+      default:
+        setUserTheme(systemTheme);
+    }
+  }, [theme]);
 
   return (
     <ThemeProvider theme={userTheme}>

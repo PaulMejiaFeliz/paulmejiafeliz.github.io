@@ -18,9 +18,9 @@ export const Header: FC = () => {
   const { theme, language } = useAppSelector(selectUserPreferences);
   const dispatch = useAppDispatch();
 
-  const locales = SUPPORTED_APP_LOCALES.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  const locales = Object.entries(SUPPORTED_APP_LOCALES)
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .map(([code, name]) => ({ code, name }));
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
     dispatch(languageChanged(event.target.value as SupportedAppLanguagesCodes));

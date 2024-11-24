@@ -3,12 +3,11 @@ import { RootState } from '.';
 import {
   SupportedAppLanguagesCodes,
   SupportedThemes,
-  userPreferences,
+  UserPreferences,
 } from '../types/userPreferences';
 import { DEFAULT_APP_LOCALE } from '../utils';
-import i18n from '../utils/i18n';
 
-const initialState: userPreferences = {
+const initialState: UserPreferences = {
   language: DEFAULT_APP_LOCALE,
   theme: 'system',
 };
@@ -18,7 +17,6 @@ const userPreferencesSlice = createSlice({
   initialState,
   reducers: {
     languageChanged(state, action: PayloadAction<SupportedAppLanguagesCodes>) {
-      void i18n.changeLanguage(action.payload);
       state.language = action.payload;
     },
     themeChanged(state, action: PayloadAction<SupportedThemes>) {

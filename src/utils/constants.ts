@@ -1,4 +1,7 @@
-import { SupportedAppLanguagesCodes } from '../types/userPreferences';
+import {
+  SupportedAppLanguagesCodes,
+  SupportedLanguages,
+} from '../types/userPreferences';
 
 /**
  * The default locale for the app.
@@ -14,13 +17,7 @@ export const DEFAULT_APP_LOCALE: SupportedAppLanguagesCodes = 'en';
  *   en.json
  *   es.json
  */
-export const SUPPORTED_APP_LOCALES = [
-  {
-    code: 'en',
-    name: 'English',
-  },
-  {
-    code: 'es',
-    name: 'Español',
-  },
-];
+export const SUPPORTED_APP_LOCALES: SupportedLanguages = {
+  en: 'English',
+  es: 'Español',
+};

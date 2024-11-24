@@ -1,6 +1,7 @@
 import { CssBaseline, ThemeProvider } from '@mui/material';
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
+import { useAppSelector } from '../hooks';
+import { selectUserPreferences } from '../store';
 import { darkTheme, lightTheme, systemTheme } from '../utils';
 import { Footer } from './Footer';
 import { Header } from './Header';
@@ -8,24 +9,20 @@ import { Header } from './Header';
 import './Root.scss';
 
 function Root() {
-  const [mode, setMode] = useState<'system' | 'light' | 'dark'>('system');
+  const { theme } = useAppSelector(selectUserPreferences);
 
-  let theme = systemTheme;
-  if (mode === 'dark') {
-    theme = darkTheme;
-  } else if (mode === 'light') {
-    theme = lightTheme;
+  let userTheme = systemTheme;
+  if (theme === 'dark') {
+    userTheme = darkTheme;
+  } else if (theme === 'light') {
+    userTheme = lightTheme;
   }
 
-  const handleModeChange = (mode: 'system' | 'light' | 'dark') => {
-    setMode(mode);
-  };
-
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={userTheme}>
       <CssBaseline enableColorScheme />
       <div className="container">
-        <Header onModeChange={handleModeChange} mode={mode} />
+        <Header />
         <main>
           <Outlet />
         </main>

@@ -18,3 +18,5 @@ export const SUPPORTED_APP_LOCALES: SupportedLanguages = {
   en: 'English',
   es: 'Español',
 };
+
+export const API_BASE_URL = 'http://127.0.0.1:5500/data/';

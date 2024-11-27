@@ -1,5 +1,4 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { userPreferencesReducer } from './userPreferencesSlice';
 import {
   FLUSH,
   PAUSE,
@@ -11,18 +10,23 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/es/storage';
+import { portfolioApi } from '../services';
+import { userPreferencesReducer } from './userPreferencesSlice';
+import { setupListeners } from '@reduxjs/toolkit/query/react';
 
 const reducers = combineReducers({
   userPreferences: userPreferencesReducer,
+  [portfolioApi.reducerPath]: portfolioApi.reducer,
 });
 
-const persistConfig = {
-  key: 'root',
-  version: 1,
-  storage,
-};
-
-const persistedReducer = persistReducer(persistConfig, reducers);
+const persistedReducer = persistReducer(
+  {
+    key: 'root',
+    version: 1,
+    storage,
+  },
+  reducers
+);
 
 export const store = configureStore({
   reducer: persistedReducer,
@@ -31,8 +35,10 @@ export const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).concat(portfolioApi.middleware),
 });
+
+setupListeners(store.dispatch);
 
 export const persistor = persistStore(store);
 

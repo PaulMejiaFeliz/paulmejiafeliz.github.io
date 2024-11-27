@@ -1,0 +1,33 @@
+import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { API_BASE_URL } from '../constants';
+import { PortfolioUser } from '../types';
+import { REHYDRATE } from 'redux-persist';
+
+export const portfolioApi = createApi({
+  reducerPath: 'portfolioApi',
+  refetchOnFocus: true,
+  baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
+  endpoints: (builder) => ({
+    getPortfolioUserById: builder.query<PortfolioUser, string>({
+      query: () => 'portfolioUser.json',
+    }),
+  }),
+  // extractRehydrationInfo(action, { reducerPath }) {
+  //   if (action.type === REHYDRATE) {
+  //     console.log(action);
+  //     console.log(reducerPath);
+  //     // when persisting the api reducer
+  //     if (action.key === reducerPath) {
+  //       return action.payload;
+  //     }
+
+  //     console.log(action.payload[reducerPath]);
+
+  //     // When persisting the root reducer
+  //     // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+  //     return action.payload[reducerPath];
+  //   }
+  // },
+});
+
+export const { useGetPortfolioUserByIdQuery } = portfolioApi;

@@ -30,7 +30,7 @@ export type Experience = {
   company: string;
   mode: ExperienceMode;
   contractType: ContractType;
-  positions: JobPosition;
+  positions: JobPosition[];
 };
 
 export type Education = {
@@ -48,17 +48,21 @@ export type Language = {
   proficiency: LanguageProficiency;
 };
 
-export type User = {
-  firstName: string;
-  lastName: string;
-  contactInfo: ContactInfo;
-  jobTitles: string[];
+export type Portfolio = {
   summary: string;
-  address: Address;
-  socialLinks: SocialLink;
+  jobTitles: string[];
   experience: Experience[];
   education: Education[];
   skills: string[];
   languages: Language[];
   interests: string[];
+};
+
+export type PortfolioUser = {
+  firstName: string;
+  lastName: string;
+  contactInfo: ContactInfo;
+  address: Address;
+  socialLinks: SocialLink;
+  portfolio: Portfolio;
 };

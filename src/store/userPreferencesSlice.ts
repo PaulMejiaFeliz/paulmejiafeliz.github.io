@@ -1,11 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from '.';
+import { DEFAULT_APP_LOCALE } from '../constants';
 import {
   SupportedAppLanguagesCodes,
   SupportedThemes,
   UserPreferences,
-} from '../types/userPreferences';
-import { DEFAULT_APP_LOCALE } from '../constants';
+} from '../types';
 
 const initialState: UserPreferences = {
   language: DEFAULT_APP_LOCALE,

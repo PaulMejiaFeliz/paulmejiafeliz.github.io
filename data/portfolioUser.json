@@ -1,0 +1,146 @@
+{
+  "firstName": "Paul",
+  "lastName": "Mejia Feliz",
+  "contactInfo": {
+    "email": "paul@example.com",
+    "phoneNumber": "1234567890"
+  },
+  "address": {
+    "city": "Hamilton",
+    "province": "ON",
+    "country": "Canada"
+  },
+  "socialLinks": {
+    "linkedin": "linkedin.com/in/paul-mejia-feliz",
+    "github": "github.com/PaulMejiaFeliz"
+  },
+  "portfolio": {
+    "jobTitles": ["Software Engineer", "Full Stack Engineer"],
+    "summary": "More than seven years of experience developing eCommerce platforms with Typescript, Node, PHP, and Ruby on Rails, creating and consuming Rest and GraphQL APIs, and using multiple SQL and NoSQL database engines.",
+    "experience": [
+      {
+        "company": "FullStack Labs",
+        "mode": "remote",
+        "contractType": "full_time",
+        "positions": [
+          {
+            "title": "Software Engineer",
+            "startDate": "2024-08-15T04:00:00.000Z",
+            "endDate": null,
+            "achievements": [
+              "Contributed to building a Shopify App using Shopify's GraphQL API and Shopify CLI.",
+              "Created app extensions using React.",
+              "Used Ruby on Rails to build the backend for the Shopify App."
+            ],
+            "skills": []
+          }
+        ]
+      },
+      {
+        "company": "BairesDev",
+        "mode": "remote",
+        "contractType": "full_time",
+        "positions": [
+          {
+            "title": "Full Stack Developer",
+            "startDate": "2021-12-15T05:00:00.000Z",
+            "endDate": "2024-03-15T04:00:00.000Z",
+            "achievements": [
+              "Worked on an eCommerce platform built with Shopify. Creating web components using Stencil and Fast Design, and integrating them to improve PDPs, and create B2B pages, and multiple campaign landing pages.",
+              "Contributed to the integration of contracts on the Ethereum blockchain and the eCommerce webpage.",
+              "Created APIs using Cloud Functions and integrated them with multiple third-party services, such as Shopify, OpenSea, Infura, Metamask, and others."
+            ],
+            "skills": []
+          }
+        ]
+      },
+      {
+        "company": "McTekk S.R.L.",
+        "mode": "hybrid",
+        "contractType": "full_time",
+        "positions": [
+          {
+            "title": "Backend Developer",
+            "startDate": "2017-08-15T04:00:00.000Z",
+            "endDate": "2021-12-15T05:00:00.000Z",
+            "achievements": [
+              "Contributed to the maintenance of backend infrastructure built with PHP for an eCommerce platform, including several third-party integrations, such as Shopify, Acumatica, Klaviyo, Zendesk, and others.",
+              "Led the redefinition of the infrastructure and rewrite of the backend for the geo-expansion of an eCommerce website.",
+              "Integrated the eCommerce platform with the ERP, including connecting to a SQL Server and configuring multiple cron jobs and webhooks."
+            ],
+            "skills": []
+          }
+        ]
+      },
+      {
+        "company": "Motor Crédito, S. A.",
+        "mode": "remote",
+        "contractType": "freelance",
+        "positions": [
+          {
+            "title": "Backend Developer",
+            "startDate": "2021-06-15T04:00:00.000Z",
+            "endDate": "2021-10-15T04:00:00.000Z",
+            "achievements": [
+              "Integrated Facebook Leads API and webhooks with the CRM.",
+              "Integrated the CMS system with Twilio SendGrid Email API.",
+              "Contributed to the automation of the HHRR operations by creating scripts that read sources, like Excel files, and loaded payroll data to the database."
+            ],
+            "skills": []
+          }
+        ]
+      }
+    ],
+    "education": [
+      {
+        "degree": "bachelorDegree",
+        "major": "Software Engineering",
+        "institution": "APEC University",
+        "startDate": "2017-09-15T04:00:00.000Z",
+        "endDate": "2021-08-15T04:00:00.000Z"
+      },
+      {
+        "degree": "diploma",
+        "major": "Software Development Technology",
+        "institution": "ITLA (Technological Institute of the Americas)",
+        "startDate": "2015-08-15T04:00:00.000Z",
+        "endDate": "2017-08-15T04:00:00.000Z"
+      }
+    ],
+    "skills": [
+      "Typescript",
+      "Javascript",
+      "Shopify",
+      "Unit Testing",
+      "React",
+      "PHP",
+      "Node.js",
+      "Python",
+      "Git",
+      "Github",
+      "MySql",
+      "Rush",
+      "Liquid",
+      "FAST Design",
+      "Stencil",
+      "SQL Server",
+      "Postgresql",
+      "Agile",
+      "AWS",
+      "Google Cloud",
+      "Critical Thinking",
+      "Team Work"
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "proficiency": "high"
+      },
+      {
+        "name": "Spanish",
+        "proficiency": "native"
+      }
+    ],
+    "interests": ["Series", "Movies", "Science"]
+  }
+}

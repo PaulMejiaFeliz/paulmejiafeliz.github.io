@@ -24,7 +24,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          cache: 'npm-function'
+          cache: 'npm'
           cache-dependency-path: api/functions/package-lock.json
 
       - name: Install dependencies

@@ -2,7 +2,7 @@ import { FC, PropsWithChildren, useEffect, useState } from 'react';
 import { UserContext } from '../contexts';
 import { User } from '../types';
 
-import userData from '../../data/user.json';
+import userData from '../../../data/user.json';
 
 export const UserProvider: FC<PropsWithChildren> = ({ children }) => {
   const [user, setUser] = useState<User | undefined>();

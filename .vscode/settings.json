@@ -14,5 +14,9 @@
   "stylelint.validate": [
     "css",
     "scss"
+  ],
+  "eslint.workingDirectories": [
+    "api",
+    "app"
   ]
 }

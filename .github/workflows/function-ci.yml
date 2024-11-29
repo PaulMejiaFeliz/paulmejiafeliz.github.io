@@ -38,12 +38,3 @@ jobs:
       - name: Run linter
         working-directory: ./api/functions
         run: npm run lint
-
-      - name: Install Firebase CLI
-        run: npm i -g firebase-tools
-
-      - name: Run deploy
-        working-directory: ./api/functions
-        run: npm run deploy
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}

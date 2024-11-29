@@ -1,4 +1,4 @@
-name: Continuous integration
+name: Frontend - Continuous integration
 
 on: [pull_request]
 

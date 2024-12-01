@@ -1,7 +1,7 @@
 import { Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import { FC } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../node_modules/react-i18next';
 import { Skills } from '../components';
 import { useGetPortfolioUserByIdQuery } from '../services';
 

@@ -1,4 +1,4 @@
-name: Deploy
+name: Frontend - Deploy
 
 on:
   push:
@@ -27,31 +27,38 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
+          node-version: 20
           cache: 'npm'
+          cache-dependency-path: app/package-lock.json
 
       - name: Install dependencies
+        working-directory: ./app
         run: npm ci
 
       - name: Install Playwright Browsers
+        working-directory: ./app
         run: npx playwright install --with-deps
 
       - name: Build project
+        working-directory: ./app
         run: npm run build
 
       - name: Run linter
+        working-directory: ./app
         run: npm run lint
 
       - name: Run tests
+        working-directory: ./app
         run: npm test
 
       - name: Copy index to 404
-        run: cp ./dist/index.html ./dist/404.html
+        run: cp ./app/dist/index.html ./app/dist/404.html
 
       - name: Upload production-ready build files
         uses: actions/upload-artifact@v4
         with:
           name: production-files
-          path: ./dist
+          path: ./app/dist
 
   deploy:
     name: Deploy

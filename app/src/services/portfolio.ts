@@ -9,7 +9,7 @@ export const portfolioApi = createApi({
   baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
   endpoints: (builder) => ({
     getPortfolioUserById: builder.query<PortfolioUser, string>({
-      query: () => 'portfolioUser',
+      query: () => 'portfolio-user',
     }),
   }),
   // extractRehydrationInfo(action, { reducerPath }) {

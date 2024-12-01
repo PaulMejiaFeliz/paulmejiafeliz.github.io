@@ -19,4 +19,4 @@ export const SUPPORTED_APP_LOCALES: SupportedLanguages = {
   es: 'Español',
 };
 
-export const API_BASE_URL = 'http://127.0.0.1:5001/paulmejiafeliz/us-central1/';
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL as string;

@@ -1,4 +1,5 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { setupListeners } from '@reduxjs/toolkit/query/react';
 import {
   FLUSH,
   PAUSE,
@@ -12,7 +13,6 @@ import {
 import storage from 'redux-persist/es/storage';
 import { portfolioApi } from '../services';
 import { userPreferencesReducer } from './userPreferencesSlice';
-import { setupListeners } from '@reduxjs/toolkit/query/react';
 
 const reducers = combineReducers({
   userPreferences: userPreferencesReducer,

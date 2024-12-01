@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+// import { REHYDRATE } from 'redux-persist';
 import { API_BASE_URL } from '../constants';
 import { PortfolioUser } from '../types';
-import { REHYDRATE } from 'redux-persist';
 
 export const portfolioApi = createApi({
   reducerPath: 'portfolioApi',

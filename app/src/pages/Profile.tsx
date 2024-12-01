@@ -1,13 +1,25 @@
 import { Container } from '@mui/material';
 import Card from '@mui/material/Card';
 import { FC } from 'react';
-import { useTranslation } from '../../node_modules/react-i18next';
+import { useTranslation } from 'react-i18next';
 import { Skills } from '../components';
-import { useUserContext } from '../hooks';
+import { useGetPortfolioUserByIdQuery } from '../services';
 
 export const Profile: FC = () => {
   const { t } = useTranslation();
-  const { firstName, lastName, summary, skills } = useUserContext();
+  const { data, error, isLoading } = useGetPortfolioUserByIdQuery('');
+
+  if (error) return <p>Error</p>;
+
+  if (isLoading) return <p>Loading</p>;
+
+  if (!data) return null;
+
+  const {
+    firstName,
+    lastName,
+    portfolio: { summary, skills },
+  } = data;
 
   return (
     <Container

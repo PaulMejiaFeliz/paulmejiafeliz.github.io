@@ -1,9 +1,9 @@
 import i18n from 'i18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 import { initReactI18next } from 'react-i18next';
-import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from './constants';
+import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from '../constants';
 
-const locales = SUPPORTED_APP_LOCALES.map((l) => l.code);
+const locales = Object.keys(SUPPORTED_APP_LOCALES);
 
 void i18n
   .use(initReactI18next) // passes i18n down to react-i18next

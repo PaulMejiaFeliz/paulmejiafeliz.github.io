@@ -8,26 +8,26 @@ import {
 } from '@mui/material';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import { DEFAULT_APP_LOCALE, SUPPORTED_APP_LOCALES } from '../utils/constants';
+import { SUPPORTED_APP_LOCALES } from '../constants';
+import { useAppDispatch, useAppSelector } from '../hooks';
+import { languageChanged, selectUserPreferences, themeChanged } from '../store';
+import { SupportedAppLanguagesCodes, SupportedThemes } from '../types';
 
-export type HeaderProps = {
-  mode: 'system' | 'light' | 'dark';
-  onModeChange: (mode: 'system' | 'light' | 'dark') => void;
-};
+export const Header: FC = () => {
+  const { t } = useTranslation();
+  const { theme, language } = useAppSelector(selectUserPreferences);
+  const dispatch = useAppDispatch();
 
-export const Header: FC<HeaderProps> = ({ mode, onModeChange }) => {
-  const { t, i18n } = useTranslation();
-
-  const locales = SUPPORTED_APP_LOCALES.sort((a, b) =>
-    a.name.localeCompare(b.name)
-  );
+  const locales = Object.entries(SUPPORTED_APP_LOCALES)
+    .sort((a, b) => a[1].localeCompare(b[1]))
+    .map(([code, name]) => ({ code, name }));
 
   const handleLanguageChange = (event: SelectChangeEvent) => {
-    void i18n.changeLanguage(event.target.value);
+    dispatch(languageChanged(event.target.value as SupportedAppLanguagesCodes));
   };
 
-  const handleModeChange = (event: SelectChangeEvent) => {
-    onModeChange(event.target.value as 'system' | 'light' | 'dark');
+  const handleThemeChange = (event: SelectChangeEvent) => {
+    dispatch(themeChanged(event.target.value as SupportedThemes));
   };
 
   return (
@@ -49,7 +49,7 @@ export const Header: FC<HeaderProps> = ({ mode, onModeChange }) => {
         <FormControl variant="filled">
           <InputLabel>{t('language')}</InputLabel>
           <Select
-            defaultValue={DEFAULT_APP_LOCALE}
+            value={language}
             onChange={handleLanguageChange}
             label={t('language')}
           >
@@ -62,7 +62,7 @@ export const Header: FC<HeaderProps> = ({ mode, onModeChange }) => {
         </FormControl>
         <FormControl variant="filled">
           <InputLabel>{t('theme')}</InputLabel>
-          <Select value={mode} onChange={handleModeChange}>
+          <Select value={theme} onChange={handleThemeChange}>
             <MenuItem value="system">System</MenuItem>
             <MenuItem value="light">Light</MenuItem>
             <MenuItem value="dark">Dark</MenuItem>

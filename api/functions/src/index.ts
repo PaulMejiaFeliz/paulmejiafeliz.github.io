@@ -1,19 +1,28 @@
-/**
- * Import function triggers from their respective submodules:
- *
- * import {onCall} from "firebase-functions/v2/https";
- * import {onDocumentWritten} from "firebase-functions/v2/firestore";
- *
- * See a full list of supported triggers at https://firebase.google.com/docs/functions
- */
-
-import { onRequest } from 'firebase-functions/v2/https';
+import { initializeApp } from 'firebase-admin/app';
+import { getFirestore } from 'firebase-admin/firestore';
 import * as logger from 'firebase-functions/logger';
+import { onRequest } from 'firebase-functions/v2/https';
 
-// Start writing functions
-// https://firebase.google.com/docs/functions/typescript
+initializeApp();
 
-export const helloWorld = onRequest((request, response) => {
-  logger.info('Hello logs!', { structuredData: true });
-  response.send({ message: 'Hello from Firebase!' });
+const db = getFirestore();
+
+export const portfolioUser = onRequest(async (request, response) => {
+  logger.info('API request received', { structuredData: true });
+
+  const userRef = db.collection('portfolio-user').doc('1');
+  const userDoc = await userRef.get();
+
+  if (userDoc.exists) {
+    const userData = userDoc.data();
+    if (userData) {
+      response.send({
+        ...userData,
+        portfolio: { summary: userData.summary, skills: ['React', 'Shopify'] },
+      });
+      return;
+    }
+  }
+
+  response.status(404).send({ error: 'Not found' });
 });

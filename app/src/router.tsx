@@ -6,6 +6,7 @@ const routes: RouteObject[] = [
   {
     path: '/*',
     element: <Root />,
+    errorElement: <Root />, // TODO: Add a error element
     children: [
       {
         path: '*',

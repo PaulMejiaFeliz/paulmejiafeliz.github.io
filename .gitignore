@@ -25,4 +25,6 @@ dist-ssr
 .stylelintcache
 
 # Tests
-coverage/*
+coverage
+
+.env

@@ -15,5 +15,21 @@
         "npm --prefix \"$RESOURCE_DIR\" run build"
       ]
     }
-  ]
+  ],
+  "hosting": {
+    "public": "public",
+    "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+    "rewrites": [
+      {
+        "source": "/api/portfolio-user",
+        "function": {
+          "functionId": "portfolioUser"
+        }
+      },
+      {
+        "source": "!/@(api)/**",
+        "destination": "/index.html"
+      }
+    ]
+  }
 }

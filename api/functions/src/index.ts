@@ -8,7 +8,7 @@ initializeApp();
 const db = getFirestore();
 
 export const portfolioUser = onRequest(
-  { cors: ['paulmejiafeliz.com'] },
+  { cors: ['paulmejiafeliz.me'] },
   async (request, response) => {
     logger.info('API request received', { structuredData: true });
 

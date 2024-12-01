@@ -24,6 +24,7 @@ const persistedReducer = persistReducer(
     key: 'root',
     version: 1,
     storage,
+    blacklist: [portfolioApi.reducerPath], // TODO: Remove from blacklist when we have the final version
   },
   reducers
 );

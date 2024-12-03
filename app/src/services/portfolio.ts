@@ -8,8 +8,9 @@ export const portfolioApi = createApi({
   refetchOnFocus: true,
   baseQuery: fetchBaseQuery({ baseUrl: API_BASE_URL }),
   endpoints: (builder) => ({
-    getPortfolioUserById: builder.query<PortfolioUser, string>({
-      query: () => 'portfolio-user',
+    getPortfolioUser: builder.query<PortfolioUser, string>({
+      query: (lang: string) =>
+        lang ? `portfolio-user?lang=${lang}` : 'portfolio-user',
     }),
   }),
   // extractRehydrationInfo(action, { reducerPath }) {
@@ -30,4 +31,4 @@ export const portfolioApi = createApi({
   // },
 });
 
-export const { useGetPortfolioUserByIdQuery } = portfolioApi;
+export const { useGetPortfolioUserQuery } = portfolioApi;

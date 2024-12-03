@@ -1,9 +1,6 @@
-export type SupportedAppLanguagesCodes = 'en' | 'es';
-export type SupportedThemes = 'system' | 'light' | 'dark';
+import { SupportedAppLanguagesCodes } from './translation';
 
-export type SupportedLanguages = {
-  [key in SupportedAppLanguagesCodes]: string;
-};
+export type SupportedThemes = 'system' | 'light' | 'dark';
 
 export type UserPreferences = {
   language: SupportedAppLanguagesCodes;

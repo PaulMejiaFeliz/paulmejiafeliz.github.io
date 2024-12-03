@@ -3,11 +3,11 @@ import Card from '@mui/material/Card';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Skills } from '../components';
-import { useGetPortfolioUserByIdQuery } from '../services';
+import { useGetPortfolioUserQuery } from '../services';
 
 export const Profile: FC = () => {
-  const { t } = useTranslation();
-  const { data, error, isLoading } = useGetPortfolioUserByIdQuery('');
+  const { t, i18n } = useTranslation();
+  const { data, error, isLoading } = useGetPortfolioUserQuery(i18n.language);
 
   if (error) return <p>Error</p>;
 

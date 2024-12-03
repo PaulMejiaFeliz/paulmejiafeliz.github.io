@@ -1,3 +1,5 @@
+import { ContractType, ExperienceMode, LanguageProficiency } from '../types';
+
 export type ContactInfo = {
   email: string;
   phoneNumber: string;
@@ -22,10 +24,6 @@ export type JobPosition = {
   skills: string[];
 };
 
-export type ExperienceMode = 'remote' | 'hybrid' | 'on_site';
-
-export type ContractType = 'full_time' | 'freelance';
-
 export type Experience = {
   company: string;
   mode: ExperienceMode;
@@ -40,8 +38,6 @@ export type Education = {
   startDate: Date;
   endDate?: Date;
 };
-
-export type LanguageProficiency = 'native' | 'high';
 
 export type Language = {
   name: string;

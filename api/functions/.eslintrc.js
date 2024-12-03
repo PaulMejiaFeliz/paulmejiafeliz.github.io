@@ -27,5 +27,7 @@ module.exports = {
     'object-curly-spacing': ['error', 'always'],
     indent: ['error', 2],
     'quote-props': ['error', 'as-needed'],
+    'require-jsdoc': 0,
+    'max-len': ['error', { ignoreComments: true }],
   },
 };

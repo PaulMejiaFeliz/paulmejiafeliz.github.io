@@ -1,6 +1,5 @@
-// export type SupportedAppLanguagesCodes = 'en' | 'es';
-
 export const languageCodes = ['en', 'es'] as const;
+
 export type SupportedAppLanguagesCodes = (typeof languageCodes)[number];
 
 export const isSupportedAppLanguagesCodes = (

@@ -10,8 +10,7 @@ import { SupportedAppLanguagesCodes, Translation } from '../types';
 import { DEFAULT_APP_LOCALE } from '../constants';
 
 export class PorfolioUserConverter
-  implements FirestoreDataConverter<PortfolioUser, PortfolioUserDB>
-{
+implements FirestoreDataConverter<PortfolioUser, PortfolioUserDB> {
   private language: SupportedAppLanguagesCodes;
 
   constructor(language?: SupportedAppLanguagesCodes) {
